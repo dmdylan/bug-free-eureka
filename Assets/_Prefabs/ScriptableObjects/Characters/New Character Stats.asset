@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d38e758c66dc17439ac670dce304d12, type: 3}
   m_Name: New Character Stats
   m_EditorClassIdentifier: 
-  health: 1
+  health: 10
   energy: 0
-  vitality: 7
-  strength: 24
-  stamina: 0
-  dexterity: 0
+  strength: 0
+  ability: 0
   speed: 0
   luck: 0
   dodge: 0
   block: 0
-  healthBonus: 0
