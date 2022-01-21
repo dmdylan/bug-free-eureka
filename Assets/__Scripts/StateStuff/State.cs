@@ -18,14 +18,25 @@ namespace StateStuff
             yield break;
         }
 
-        public virtual IEnumerator Attack()
+        protected IEnumerator SetNewTurnOrder()
         {
-            yield break;
+            combatManager.CurrentCharacterTurn = combatManager.TurnOrder.Dequeue();
+
+            yield return new WaitForSeconds(1f);
+
+            combatManager.TurnOrder.Enqueue(combatManager.CurrentCharacterTurn);
         }
 
-        public virtual IEnumerator End()
+        protected void ChangeToNewPlayerOrEnemyState()
         {
-            yield break;
+            if (combatManager.CurrentCharacterTurn.Status.Equals(PositionStatus.Friendly))
+            {
+                combatManager.SetState(new PlayerTurnState(combatManager));
+            }
+            else
+            {
+                combatManager.SetState(new EnemyTurnState(combatManager));
+            }
         }
     }
 }

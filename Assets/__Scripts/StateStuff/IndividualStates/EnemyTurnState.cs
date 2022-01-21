@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurnState : MonoBehaviour
+namespace StateStuff
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyTurnState : State
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public EnemyTurnState(CombatManager combatManager) : base(combatManager)
+        {
+        }
     }
 }

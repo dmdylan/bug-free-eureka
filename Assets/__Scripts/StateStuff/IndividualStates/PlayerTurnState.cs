@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTurnState : MonoBehaviour
+namespace StateStuff
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerTurnState : State
     {
-        
-    }
+        public PlayerTurnState(CombatManager combatManager) : base(combatManager)
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override IEnumerator Start()
+        {
+            return base.Start();
+        }
     }
 }
