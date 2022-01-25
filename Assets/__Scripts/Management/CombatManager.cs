@@ -5,23 +5,13 @@ using UnityEngine;
 
 public class CombatManager : StateMachine
 {
-    //static CombatManager instance;
-    //public static CombatManager Instance
-    //{
-    //    get
-    //    {
-    //        if (instance == null)
-    //            instance = FindObjectOfType<CombatManager>();
-    //        return instance;
-    //    }
-    //}
-
     private List<Character> enemies = new List<Character>();
     private List<Character> friendlies = new List<Character>();
     private List<Character> allCharacters = new List<Character>();
     private Queue<Character> turnOrder = new Queue<Character>();
     private Character currentTarget;
     private Character currentCharacterTurn;
+    [SerializeField] private GameObject CombatUI;
 
     #region Getters and Setters
 
@@ -36,6 +26,7 @@ public class CombatManager : StateMachine
 
     private void Start()
     {
+        friendlies = GameManager.Instance.PlayerParty;
         SetState(new BeginState(this));
     }
 }

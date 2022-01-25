@@ -12,23 +12,12 @@ namespace StateStuff
 
         public override IEnumerator Start()
         {
-            SeparateFriendsAndEnemies();
+
             SetTurnOrder();
 
             yield return null;
-
+            
             ChangeToNewPlayerOrEnemyState();
-        }
-
-        private void SeparateFriendsAndEnemies()
-        {
-            foreach (Character character in combatManager.AllCharacters)
-            {
-                if (character.Status == PositionStatus.Enemy)
-                    combatManager.Enemies.Add(character);
-                else
-                    combatManager.Friendlies.Add(character);
-            }
         }
 
         private void SetTurnOrder()
