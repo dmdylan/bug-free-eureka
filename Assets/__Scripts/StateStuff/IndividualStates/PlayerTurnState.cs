@@ -12,7 +12,8 @@ namespace StateStuff
 
         public override IEnumerator Start()
         {
-            return base.Start();
+            GameEventsManager.Instance.PlayerTurnStarted();
+            yield break;
         }
     }
 }

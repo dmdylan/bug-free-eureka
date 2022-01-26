@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
         instance = this;
     }
 
@@ -51,13 +51,6 @@ public class GameManager : MonoBehaviour
     {
         playerParty.CurrentPlayerParty.Remove(character);
     }
-
-    #endregion
-
-    //TODO: Make own game events class?
-    #region Events
-
-    public event Action OnCombatTurnFinished;
 
     #endregion
 }

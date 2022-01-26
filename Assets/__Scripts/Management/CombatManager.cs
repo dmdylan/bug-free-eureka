@@ -11,7 +11,6 @@ public class CombatManager : StateMachine
     private Queue<Character> turnOrder = new Queue<Character>();
     private Character currentTarget;
     private Character currentCharacterTurn;
-    [SerializeField] private GameObject CombatUI;
 
     #region Getters and Setters
 
