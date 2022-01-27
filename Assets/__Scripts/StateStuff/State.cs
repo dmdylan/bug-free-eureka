@@ -13,30 +13,8 @@ namespace StateStuff
             this.combatManager = combatManager;
         }
 
-        public virtual IEnumerator Start()
-        {
-            yield break;
-        }
+        public abstract IEnumerator Start();
 
-        protected IEnumerator SetNewTurnOrder()
-        {
-            combatManager.CurrentCharacterTurn = combatManager.TurnOrder.Dequeue();
-
-            yield return new WaitForSeconds(1f);
-
-            combatManager.TurnOrder.Enqueue(combatManager.CurrentCharacterTurn);
-        }
-
-        protected void ChangeToNewPlayerOrEnemyState()
-        {
-            if (combatManager.CurrentCharacterTurn.Status.Equals(PositionStatus.Friendly))
-            {
-                combatManager.SetState(new PlayerTurnState(combatManager));
-            }
-            else
-            {
-                combatManager.SetState(new EnemyTurnState(combatManager));
-            }
-        }
+        public abstract IEnumerator End();
     }
 }

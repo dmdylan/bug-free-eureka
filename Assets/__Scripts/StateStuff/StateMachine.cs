@@ -10,7 +10,11 @@ namespace StateStuff
 
         public void SetState(State state)
         {
+            if (this.state != null)
+                StartCoroutine(state.End());
+
             this.state = state;
+
             StartCoroutine(state.Start());
         }
     }

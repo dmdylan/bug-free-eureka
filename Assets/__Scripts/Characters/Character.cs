@@ -36,6 +36,8 @@ public abstract class Character : MonoBehaviour, IComparer<Character>
         stats.CurrentStrength = stats.MaxStrength;
     }
 
+    public abstract void TakeDamage(int damageAmount);
+
     public int Compare(Character x, Character y)
     {
         return x.stats.Speed.CompareTo(y.stats.Speed);

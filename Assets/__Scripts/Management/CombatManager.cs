@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CombatManager : StateMachine
 {
+    [SerializeField] private LayerMask characterLayerMask;
     private List<Character> enemies = new List<Character>();
     private List<Character> friendlies = new List<Character>();
     private List<Character> allCharacters = new List<Character>();
@@ -18,6 +19,7 @@ public class CombatManager : StateMachine
 
     #region Getters and Setters
 
+    public LayerMask CharacterLayerMask => characterLayerMask;
     public List<Character> Enemies { get => enemies; set => enemies = value; }
     public List<Character> Friendlies { get => friendlies; set => friendlies = value; }
     public List<Character> AllCharacters { get => allCharacters; set => allCharacters = value; }
@@ -43,6 +45,27 @@ public class CombatManager : StateMachine
             attackButton = GameManager.Instance.CombatUI.AttackButton;
             skillButton = GameManager.Instance.CombatUI.SkillButton;
             itemButton = GameManager.Instance.CombatUI.ItemButton;
+        }
+    }
+
+    public IEnumerator SetNewTurnOrder()
+    {
+        currentCharacterTurn = turnOrder.Dequeue();
+
+        yield return new WaitForSeconds(1f);
+
+        turnOrder.Enqueue(currentCharacterTurn);
+    }
+
+    public void ChangeToNewPlayerOrEnemyState()
+    {
+        if (currentCharacterTurn.Status.Equals(PositionStatus.Friendly))
+        {
+            SetState(new PlayerTurnState(this));
+        }
+        else
+        {
+            SetState(new EnemyTurnState(this));
         }
     }
 }

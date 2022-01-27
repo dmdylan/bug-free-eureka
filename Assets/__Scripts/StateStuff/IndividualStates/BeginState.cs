@@ -10,6 +10,11 @@ namespace StateStuff
         {
         }
 
+        public override IEnumerator End()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override IEnumerator Start()
         {
 
@@ -17,7 +22,7 @@ namespace StateStuff
 
             yield return null;
             
-            ChangeToNewPlayerOrEnemyState();
+            combatManager.ChangeToNewPlayerOrEnemyState();
         }
 
         private void SetTurnOrder()
