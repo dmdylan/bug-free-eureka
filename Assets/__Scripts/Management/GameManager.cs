@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CurrentPlayerPartySO playerParty;
     [SerializeField] private GameObject CombatUIPrefab;
+    [SerializeField] private GameObject CombatManagerPrefab;
 
     private CombatUI combatUI;
+    private CombatManager combatManager;
 
     public List<Character> PlayerParty => playerParty.CurrentPlayerParty;
     public CombatUI CombatUI => combatUI;
@@ -25,16 +27,33 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    private void SubscribeToEvents()
+    {
         
     }
 
-    #region Combat UI Methods
+    private void UnsubscribeFromEvents()
+    {
+
+    }
+
+    #region Combat Methods
 
     public void CombatUISetup()
     {
         var ui = Instantiate(CombatUIPrefab);
 
         combatUI = ui.GetComponent<CombatUI>();
+    }
+
+    public void CombatManagerSetup()
+    {
+        var manager = Instantiate(CombatManagerPrefab);
+
+        combatManager = manager.GetComponent<CombatManager>();
     }
 
     #endregion

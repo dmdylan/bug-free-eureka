@@ -2,6 +2,7 @@ using StateStuff;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatManager : StateMachine
 {
@@ -11,6 +12,9 @@ public class CombatManager : StateMachine
     private Queue<Character> turnOrder = new Queue<Character>();
     private Character currentTarget;
     private Character currentCharacterTurn;
+    private Button attackButton;
+    private Button skillButton;
+    private Button itemButton;
 
     #region Getters and Setters
 
@@ -20,6 +24,9 @@ public class CombatManager : StateMachine
     public Queue<Character> TurnOrder { get => turnOrder; set => turnOrder = value; }
     public Character CurrentTarget { get => currentTarget; set => currentTarget = value; }
     public Character CurrentCharacterTurn { get => currentCharacterTurn; set => currentCharacterTurn = value; }
+    public Button AttackButton => attackButton;
+    public Button SkillButton => skillButton;
+    public Button ItemButton => itemButton;
 
     #endregion
 
@@ -27,5 +34,15 @@ public class CombatManager : StateMachine
     {
         friendlies = GameManager.Instance.PlayerParty;
         SetState(new BeginState(this));
+    }
+
+    private void OnEnable()
+    {
+        if(GameManager.Instance.CombatUI != null)
+        {
+            attackButton = GameManager.Instance.CombatUI.AttackButton;
+            skillButton = GameManager.Instance.CombatUI.SkillButton;
+            itemButton = GameManager.Instance.CombatUI.ItemButton;
+        }
     }
 }
