@@ -34,7 +34,7 @@ public class CombatManager : StateMachine
 
     private void Start()
     {
-        friendlies = GameManager.Instance.PlayerParty;
+        SetAllCharacterLists();
         SetState(new BeginState(this));
     }
 
@@ -46,6 +46,11 @@ public class CombatManager : StateMachine
             skillButton = GameManager.Instance.CombatUI.SkillButton;
             itemButton = GameManager.Instance.CombatUI.ItemButton;
         }
+    }
+
+    private void SetAllCharacterLists()
+    {
+        friendlies = GameManager.Instance.PlayerParty;
     }
 
     public IEnumerator SetNewTurnOrder()
