@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character List Object", menuName = "Character List Object")]
 public class CharacterList : ScriptableObject
 {
-    private List<Character> currentCharacterList = new List<Character>();
+    [SerializeField] private List<GameObject> currentCharacterList = new List<GameObject>();
 
-    public List<Character> CurrentCharacterList { get => currentCharacterList; set => currentCharacterList = value; }
+    public List<GameObject> CurrentCharacterList { get => currentCharacterList; set => currentCharacterList = value; }
 }

@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b90a4af77736764f9720be25534d648, type: 3}
   m_Name: PlayerParty
   m_EditorClassIdentifier: 
+  currentCharacterList:
+  - {fileID: 7430956190463879099, guid: 95647f1c97d6a7e438a769fe2eb1471c, type: 3}
+  - {fileID: 1143223037668289810, guid: 483e23b7eed5fd34b8c33d32877515a7, type: 3}
+  - {fileID: 3401230044967398616, guid: 7fb40b0444962ba428e696e6b6799868, type: 3}

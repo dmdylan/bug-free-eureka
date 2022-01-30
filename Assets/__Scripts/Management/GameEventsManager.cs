@@ -31,5 +31,11 @@ public class GameEventsManager : MonoBehaviour
     public event Action<Character> OnCharacterTurnFinished;
     public void CharacterTurnFinished(Character character) => OnCharacterTurnFinished?.Invoke(character);
 
+    public event Action<Character> OnPlayerCharacterDefeated;
+    public void PlayerCharacterDefeated(Character character) => OnPlayerCharacterDefeated?.Invoke(character);
+
+    public event Action<Character> OnEnemyCharacterDefeated;
+    public void EnemyCharacterDefeated(Character character) => OnEnemyCharacterDefeated?.Invoke(character);
+
     #endregion
 }

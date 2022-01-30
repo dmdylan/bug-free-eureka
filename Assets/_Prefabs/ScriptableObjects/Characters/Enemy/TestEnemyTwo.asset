@@ -10,13 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d38e758c66dc17439ac670dce304d12, type: 3}
-  m_Name: New Character Stats
+  m_Name: TestEnemyTwo
   m_EditorClassIdentifier: 
-  health: 10
-  energy: 0
-  strength: 0
-  ability: 0
+  maxHealth: 0
+  maxEnergy: 0
+  maxStrength: 0
+  maxAbility: 0
   speed: 0
   luck: 0
   dodge: 0
   block: 0
+  currentHealth: 0
+  currentEnergy: 0
+  currentStrength: 0
+  currentAbility: 0
+  currentSpeed: 5
+  currentLuck: 0
+  currentDodge: 0
+  currentBlock: 0

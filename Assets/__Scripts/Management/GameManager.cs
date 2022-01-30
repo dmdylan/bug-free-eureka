@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemyLists earlyEnemies;
     [SerializeField] private EnemyLists midEnemies;
     [SerializeField] private EnemyLists lateEnemies;
-    [SerializeField] private GameObject CombatUIPrefab;
-    [SerializeField] private GameObject CombatManagerPrefab;
+    [SerializeField] private Character CombatUIPrefab;
+    [SerializeField] private Character CombatManagerPrefab;
 
     private CombatUI combatUI;
     private CombatManager combatManager;
 
-    public List<Character> PlayerParty => playerParty.CurrentCharacterList;
-    public List<Character> EnemyParty => enemyParty.CurrentCharacterList;
+    public List<GameObject> PlayerParty => playerParty.CurrentCharacterList;
+    public List<GameObject> EnemyParty => enemyParty.CurrentCharacterList;
     public CombatUI CombatUI => combatUI;
 
     private void Awake()
@@ -70,13 +70,13 @@ public class GameManager : MonoBehaviour
 
     #region Character Party Methods
 
-    public void AddCharacterToParty(Character character)
+    public void AddCharacterToParty(GameObject character)
     {
         playerParty.CurrentCharacterList.Add(character);
     }
 
     //TODO: Might cause issues if there are multiple of one character
-    public void RemoveCharacterFromParty(Character character)
+    public void RemoveCharacterFromParty(GameObject character)
     {
         playerParty.CurrentCharacterList.Remove(character);
     }

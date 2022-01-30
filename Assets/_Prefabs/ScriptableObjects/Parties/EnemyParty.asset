@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b90a4af77736764f9720be25534d648, type: 3}
+  m_Name: EnemyParty
+  m_EditorClassIdentifier: 
+  currentCharacterList:
+  - {fileID: 5201588446415204111, guid: d03d513242abfce42935bea80cc90be9, type: 3}
+  - {fileID: 5930798662803644018, guid: 3b5b46db35f670647a33f877fd17af9d, type: 3}
+  - {fileID: 1631934112547676947, guid: a28eae0792069a34b9d3096642559cf7, type: 3}
