@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace StateStuff
@@ -17,7 +18,6 @@ namespace StateStuff
 
         public override IEnumerator Start()
         {
-
             SetTurnOrder();
 
             yield return null;
@@ -27,13 +27,21 @@ namespace StateStuff
 
         private void SetTurnOrder()
         {
-            List<Character> sortedList = combatManager.AllCharacters;
-            sortedList.Sort((IComparer<Character>)combatManager.AllCharacters);
+            List<Character> sortedList = new List<Character>();
+
+            sortedList = combatManager.AllCharacters.OrderBy(x => x.Stats.CurrentSpeed)
+                        .ToList();
+
+            //Sort by highest speed
+            sortedList.Reverse();
 
             foreach (Character character in sortedList)
             {
                 combatManager.TurnOrder.Enqueue(character);
+                Debug.Log(character.ToString());
             }
+
+            combatManager.CurrentCharacterTurn = combatManager.TurnOrder.Peek();
         }
     }
 }

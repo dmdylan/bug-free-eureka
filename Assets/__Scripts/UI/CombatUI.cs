@@ -16,16 +16,4 @@ public class CombatUI : MonoBehaviour
     public Button AttackButton => attackButton;
     public Button SkillButton => skillButton;
     public Button ItemButton => itemButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

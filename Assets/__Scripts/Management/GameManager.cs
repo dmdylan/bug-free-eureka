@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        CombatManagerSetup();
+        CombatUISetup();
     }
 
     private void SubscribeToEvents()
@@ -59,11 +60,6 @@ public class GameManager : MonoBehaviour
         combatManager = manager.GetComponent<CombatManager>();
 
         combatManager.Init(playerParty, enemyParty);
-    }
-
-    public void SpawnEnemies()
-    {
-
     }
 
     #endregion
