@@ -1792,30 +1792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: enemyParty
-      value: 
-      objectReference: {fileID: 11400000, guid: ae9fdacc4c2f59644a23ed450f1cb116, type: 2}
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: midEnemies
-      value: 
-      objectReference: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: lateEnemies
-      value: 
-      objectReference: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: earlyEnemies
-      value: 
-      objectReference: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: CombatUIPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6909189599477092760, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
-      propertyPath: CombatManagerPrefab
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6909189599477092761, guid: 02091815a0ac90b4581e3bb423a50e32, type: 3}
       propertyPath: m_Name
       value: GameManager

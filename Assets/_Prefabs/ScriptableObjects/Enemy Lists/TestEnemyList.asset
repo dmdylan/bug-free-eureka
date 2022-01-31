@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestEnemyList
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: -3131874509154285966, guid: d03d513242abfce42935bea80cc90be9, type: 3}
-  - {fileID: -4438055946026577314, guid: 3b5b46db35f670647a33f877fd17af9d, type: 3}
-  - {fileID: -7579796370222820489, guid: a28eae0792069a34b9d3096642559cf7, type: 3}
+  - {fileID: 5201588446415204111, guid: d03d513242abfce42935bea80cc90be9, type: 3}
+  - {fileID: 5930798662803644018, guid: 3b5b46db35f670647a33f877fd17af9d, type: 3}
+  - {fileID: 1631934112547676947, guid: a28eae0792069a34b9d3096642559cf7, type: 3}

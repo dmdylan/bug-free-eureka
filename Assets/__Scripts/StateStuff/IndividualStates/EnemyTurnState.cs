@@ -22,17 +22,17 @@ namespace StateStuff
 
             yield return new WaitForSeconds(.2f);
 
-            PickRandomCharacter().TakeDamage(combatManager.CurrentCharacterTurn.Stats.CurrentStrength);
+            //PickRandomCharacter().TakeDamage(combatManager.CurrentCharacterTurn.Stats.CurrentStrength);
 
             yield return new WaitForSeconds(.5f);
 
             combatManager.ChangeToNewPlayerOrEnemyState();
         }
 
-        private Character PickRandomCharacter()
-        {
-            var randomCharacter = combatManager.Friendlies[Random.Range(0, combatManager.Friendlies.Count + 1)];
-            return randomCharacter;
-        }
+        //private Character PickRandomCharacter()
+        //{
+        //    var randomCharacter = combatManager.Friendlies[Random.Range(0, combatManager.Friendlies.Count + 1)];
+        //    return randomCharacter;
+        //}
     }
 }

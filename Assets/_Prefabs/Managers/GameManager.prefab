@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerParty: {fileID: 11400000, guid: 702df0e11d1bc1e4ba124506cd44edde, type: 2}
+  enemyParty: {fileID: 11400000, guid: ae9fdacc4c2f59644a23ed450f1cb116, type: 2}
+  earlyEnemies: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
+  midEnemies: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
+  lateEnemies: {fileID: 11400000, guid: 33589550cc50b2d4389b6a9d17bd8151, type: 2}
+  CombatUIPrefab: {fileID: 958062927030178837, guid: f05463611a45a4b4bacb2462b765dfae, type: 3}
+  CombatManagerPrefab: {fileID: 416356604885082019, guid: 75435458e9584c2458899513da938cde, type: 3}
