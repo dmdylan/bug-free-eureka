@@ -8,10 +8,14 @@ namespace StateStuff
     {
         protected State state;
 
-        public void SetState(State state)
+        public IEnumerator SetState(State state)
         {
             if (this.state != null)
-                StartCoroutine(state.End());
+            {
+                StartCoroutine(this.state.End());
+
+                yield return new WaitUntil(() => this.state.CanChangeStates);
+            }
 
             this.state = state;
 

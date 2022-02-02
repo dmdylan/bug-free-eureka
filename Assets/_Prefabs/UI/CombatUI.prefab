@@ -4553,6 +4553,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnOrderParent: {fileID: 958062926127003489}
   characterPanelsParent: {fileID: 958062925630148614}
+  attackButton: {fileID: 958062926122539052}
+  skillButton: {fileID: 958062925500068410}
+  itemButton: {fileID: 958062926275280376}
 --- !u!1 &958062927081887044
 GameObject:
   m_ObjectHideFlags: 0

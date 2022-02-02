@@ -13,6 +13,7 @@ namespace StateStuff
         public override IEnumerator End()
         {
             GameEventsManager.Instance.EnemyTurnFinished();
+            canChangeStates = true;
             yield break;
         }
 

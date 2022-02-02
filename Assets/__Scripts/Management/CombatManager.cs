@@ -31,26 +31,25 @@ public class CombatManager : StateMachine
 
     #endregion
 
-    public void Init(CharacterList playerParty, CharacterList enemyParty)
+    public void Init(CharacterList playerParty, CharacterList enemyParty, Button attackButton, Button skillButton, Button itemButton)
     {
         this.playerParty = playerParty;
         this.enemyParty = enemyParty;
+        this.attackButton = attackButton;
+        this.skillButton = skillButton;
+        this.itemButton = itemButton;
     }
 
     private void Start()
     {
         SetAllCharacterLists();
-        SetState(new BeginState(this));
+        StartCoroutine(SetState(new BeginState(this)));
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        if(GameManager.Instance.CombatUI != null)
-        {
-            attackButton = GameManager.Instance.CombatUI.AttackButton;
-            skillButton = GameManager.Instance.CombatUI.SkillButton;
-            itemButton = GameManager.Instance.CombatUI.ItemButton;
-        }
+        Debug.Log(state);
+        state.UpdateState();
     }
 
     private void SetAllCharacterLists()
@@ -66,24 +65,23 @@ public class CombatManager : StateMachine
         }
     }
 
-    public IEnumerator SetNewTurnOrder()
+    public void SetNewTurnOrder()
     {
         currentCharacterTurn = turnOrder.Dequeue();
-
-        yield return new WaitForSeconds(.5f);
-
         turnOrder.Enqueue(currentCharacterTurn);
     }
 
     public void ChangeToNewPlayerOrEnemyState()
     {
+        SetNewTurnOrder();
+
         if (currentCharacterTurn.Status.Equals(PositionStatus.Friendly))
         {
-            SetState(new PlayerTurnState(this));
+            StartCoroutine(SetState(new PlayerTurnState(this)));
         }
         else
         {
-            SetState(new EnemyTurnState(this));
+            StartCoroutine(SetState(new EnemyTurnState(this)));
         }
     }
 }

@@ -7,6 +7,7 @@ namespace StateStuff
     public class PlayerTurnState : State
     {
         bool hasSelectedTarget = false;
+        bool isAttacking = false;
 
         public PlayerTurnState(CombatManager combatManager) : base(combatManager)
         {
@@ -21,13 +22,18 @@ namespace StateStuff
             yield break;
         }
 
+        public override void UpdateState()
+        {
+            if(isAttacking)
+                SelectTarget();
+        }
+
+        //TODO: Need to spawn in enemies that are in the character list to select
         private IEnumerator AttackButton()
         {
-            while (!hasSelectedTarget)
-            {
-                SelectTarget();
-                yield return null;
-            }
+            isAttacking = true;
+
+            yield return new WaitUntil(() => hasSelectedTarget);
 
             yield return new WaitForSeconds(.2f);
 

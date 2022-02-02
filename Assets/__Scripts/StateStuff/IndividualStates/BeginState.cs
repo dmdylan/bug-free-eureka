@@ -13,7 +13,9 @@ namespace StateStuff
 
         public override IEnumerator End()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Begin state end coroutine");
+            canChangeStates = true;
+            yield break;
         }
 
         public override IEnumerator Start()
@@ -38,7 +40,6 @@ namespace StateStuff
             foreach (Character character in sortedList)
             {
                 combatManager.TurnOrder.Enqueue(character);
-                Debug.Log(character.ToString());
             }
 
             combatManager.CurrentCharacterTurn = combatManager.TurnOrder.Peek();

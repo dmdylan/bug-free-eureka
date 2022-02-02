@@ -14,6 +14,8 @@ public abstract class Character : MonoBehaviour, IComparer<Character>
     [SerializeField] protected List<Ability> abilities;
     [SerializeField] protected PositionStatus status;
 
+    Color color; 
+
     public CharacterStats Stats => stats;
     //public List<Ability> Abilities => abilities;
     public PositionStatus Status => status;
@@ -22,6 +24,7 @@ public abstract class Character : MonoBehaviour, IComparer<Character>
     void Start()
     {
         CharacterSetup();
+        color = GetComponent<Renderer>().material.color;
     }
 
     private void CharacterSetup()
@@ -52,6 +55,6 @@ public abstract class Character : MonoBehaviour, IComparer<Character>
     private void OnMouseExit()
     {
         var material = GetComponent<Renderer>();
-        material.material.color = Color.red;
+        material.material.color = color;
     }
 }

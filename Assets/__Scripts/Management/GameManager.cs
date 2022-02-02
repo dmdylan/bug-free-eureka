@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     private CombatUI combatUI;
     private CombatManager combatManager;
 
-    public CombatUI CombatUI => combatUI;
-
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -30,8 +28,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CombatManagerSetup();
         CombatUISetup();
+        CombatManagerSetup();
     }
 
     private void SubscribeToEvents()
@@ -59,7 +57,7 @@ public class GameManager : MonoBehaviour
 
         combatManager = manager.GetComponent<CombatManager>();
 
-        combatManager.Init(playerParty, enemyParty);
+        combatManager.Init(playerParty, enemyParty, combatUI.AttackButton, combatUI.SkillButton, combatUI.ItemButton);
     }
 
     #endregion
