@@ -31,8 +31,11 @@ namespace StateStuff
         //TODO: Need to spawn in enemies that are in the character list to select
         private IEnumerator AttackButton()
         {
-            isAttacking = true;
+            if (isAttacking)
+                yield break;
 
+            isAttacking = true;
+            Debug.Log("Attack button pressed");
             yield return new WaitUntil(() => hasSelectedTarget);
 
             yield return new WaitForSeconds(.2f);
@@ -72,7 +75,9 @@ namespace StateStuff
                     {
                         if (Input.GetMouseButtonUp(0))
                         {
+                            Debug.Log("Selected target");
                             combatManager.CurrentTarget = character;
+                            hasSelectedTarget = true;
                         }
                     }
                 }

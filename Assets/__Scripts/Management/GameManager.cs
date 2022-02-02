@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CombatUISetup();
+        SpawnCharacters();
         CombatManagerSetup();
     }
 
@@ -44,20 +45,36 @@ public class GameManager : MonoBehaviour
 
     #region Combat Methods
 
-    public void CombatUISetup()
+    private void CombatUISetup()
     {
         var ui = Instantiate(CombatUIPrefab);
 
         combatUI = ui.GetComponent<CombatUI>();
     }
 
-    public void CombatManagerSetup()
+    private void CombatManagerSetup()
     {
         var manager = Instantiate(CombatManagerPrefab);
 
         combatManager = manager.GetComponent<CombatManager>();
 
         combatManager.Init(playerParty, enemyParty, combatUI.AttackButton, combatUI.SkillButton, combatUI.ItemButton);
+    }
+
+    //TODO: Currently is only set for a set of 3 characters each
+    private void SpawnCharacters()
+    {
+        var spawnInfo = FindObjectOfType<SpawnPoints>();
+
+        for (int i = 0; i < playerParty.CurrentCharacterList.Count; i++)
+        {
+            Instantiate(playerParty.CurrentCharacterList[i], spawnInfo.FriendlySpawnPoints[i].position, spawnInfo.FriendlySpawnPoints[i].rotation);
+        }
+
+        for (int i = 0; i < enemyParty.CurrentCharacterList.Count; i++)
+        {
+            Instantiate(enemyParty.CurrentCharacterList[i], spawnInfo.EnemySpawnPoints[i].position, spawnInfo.EnemySpawnPoints[i].rotation);
+        }
     }
 
     #endregion
