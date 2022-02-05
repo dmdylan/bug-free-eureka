@@ -8,6 +8,7 @@ namespace StateStuff
     {
         bool hasSelectedTarget = false;
         bool isAttacking = false;
+        bool turnFinished = false;
 
         public PlayerTurnState(CombatManager combatManager) : base(combatManager)
         {
@@ -24,11 +25,13 @@ namespace StateStuff
 
         public override void UpdateState()
         {
+            if (turnFinished)
+                combatManager.ChangeToNewPlayerOrEnemyState();
+
             if(isAttacking)
                 SelectTarget();
         }
 
-        //TODO: Need to spawn in enemies that are in the character list to select
         private IEnumerator AttackButton()
         {
             if (isAttacking)
@@ -42,9 +45,10 @@ namespace StateStuff
 
             combatManager.CurrentTarget.TakeDamage(combatManager.CurrentCharacterTurn.Stats.CurrentStrength);
 
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(2f);
 
-            combatManager.ChangeToNewPlayerOrEnemyState();
+            Debug.Log("turn over");
+            turnFinished = true;
         }
 
         private IEnumerator SkillButton()

@@ -71,6 +71,7 @@ public class CombatManager : StateMachine
         turnOrder.Enqueue(currentCharacterTurn);
     }
 
+    //TODO: Add transition state
     public void ChangeToNewPlayerOrEnemyState()
     {
         SetNewTurnOrder();
