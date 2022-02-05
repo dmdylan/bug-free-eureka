@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CombatManager : StateMachine
 {
+    private GameObject characterTurnIdentifier;
+
     private CharacterList playerParty;
     private CharacterList enemyParty;
 
@@ -19,6 +21,7 @@ public class CombatManager : StateMachine
 
     #region Getters and Setters
 
+    public GameObject CharacterTurnIdentifier => characterTurnIdentifier;
     public CharacterList PlayerParty => playerParty;
     public CharacterList EnemyParty => enemyParty;
     public List<Character> AllCharacters { get => allCharacters; set => allCharacters = value; }
@@ -50,6 +53,7 @@ public class CombatManager : StateMachine
     {
         Debug.Log(state);
         state.UpdateState();
+        Debug.Log(currentCharacterTurn);
     }
 
     private void SetAllCharacterLists()
@@ -71,11 +75,8 @@ public class CombatManager : StateMachine
         turnOrder.Enqueue(currentCharacterTurn);
     }
 
-    //TODO: Add transition state
     public void ChangeToNewPlayerOrEnemyState()
     {
-        SetNewTurnOrder();
-
         if (currentCharacterTurn.Status.Equals(PositionStatus.Friendly))
         {
             StartCoroutine(SetState(new PlayerTurnState(this)));
@@ -84,5 +85,8 @@ public class CombatManager : StateMachine
         {
             StartCoroutine(SetState(new EnemyTurnState(this)));
         }
+
+        //TODO: They are currently set to the midline only changing z position for some reason
+        Debug.Log(currentCharacterTurn.transform.position);
     }
 }

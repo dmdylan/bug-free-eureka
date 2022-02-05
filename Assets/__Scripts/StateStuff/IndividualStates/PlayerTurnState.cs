@@ -8,7 +8,6 @@ namespace StateStuff
     {
         bool hasSelectedTarget = false;
         bool isAttacking = false;
-        bool turnFinished = false;
 
         public PlayerTurnState(CombatManager combatManager) : base(combatManager)
         {
@@ -25,8 +24,8 @@ namespace StateStuff
 
         public override void UpdateState()
         {
-            if (turnFinished)
-                combatManager.ChangeToNewPlayerOrEnemyState();
+            if (canChangeStates)
+                combatManager.StartCoroutine(combatManager.SetState(new TurnTransitionState(combatManager)));
 
             if(isAttacking)
                 SelectTarget();
@@ -48,7 +47,7 @@ namespace StateStuff
             yield return new WaitForSeconds(2f);
 
             Debug.Log("turn over");
-            turnFinished = true;
+            canChangeStates = true;
         }
 
         private IEnumerator SkillButton()

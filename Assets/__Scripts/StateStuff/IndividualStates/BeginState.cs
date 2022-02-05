@@ -13,7 +13,6 @@ namespace StateStuff
 
         public override IEnumerator End()
         {
-            Debug.Log("Begin state end coroutine");
             canChangeStates = true;
             yield break;
         }

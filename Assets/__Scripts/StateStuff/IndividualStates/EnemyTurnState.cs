@@ -27,7 +27,7 @@ namespace StateStuff
 
             yield return new WaitForSeconds(.5f);
 
-            combatManager.ChangeToNewPlayerOrEnemyState();
+            combatManager.StartCoroutine(combatManager.SetState(new TurnTransitionState(combatManager)));
         }
 
         //private Character PickRandomCharacter()

@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemyLists earlyEnemies;
     [SerializeField] private EnemyLists midEnemies;
     [SerializeField] private EnemyLists lateEnemies;
-    [SerializeField] private GameObject CombatUIPrefab;
-    [SerializeField] private GameObject CombatManagerPrefab;
+    [SerializeField] private GameObject combatUIPrefab;
+    [SerializeField] private GameObject combatManagerPrefab;
 
     private CombatUI combatUI;
     private CombatManager combatManager;
@@ -47,14 +47,14 @@ public class GameManager : MonoBehaviour
 
     private void CombatUISetup()
     {
-        var ui = Instantiate(CombatUIPrefab);
+        var ui = Instantiate(combatUIPrefab);
 
         combatUI = ui.GetComponent<CombatUI>();
     }
 
     private void CombatManagerSetup()
     {
-        var manager = Instantiate(CombatManagerPrefab);
+        var manager = Instantiate(combatManagerPrefab);
 
         combatManager = manager.GetComponent<CombatManager>();
 
