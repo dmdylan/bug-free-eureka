@@ -66,14 +66,16 @@ public class GameManager : MonoBehaviour
     {
         var spawnInfo = FindObjectOfType<SpawnPoints>();
 
+        GameObject characterParent = new GameObject("Character's Parent");
+
         for (int i = 0; i < playerParty.CurrentCharacterList.Count; i++)
         {
-            Instantiate(playerParty.CurrentCharacterList[i], spawnInfo.FriendlySpawnPoints[i].position, spawnInfo.FriendlySpawnPoints[i].rotation);
+            Instantiate(playerParty.CurrentCharacterList[i], spawnInfo.FriendlySpawnPoints[i].position, spawnInfo.FriendlySpawnPoints[i].rotation, characterParent.transform);
         }
 
         for (int i = 0; i < enemyParty.CurrentCharacterList.Count; i++)
         {
-            Instantiate(enemyParty.CurrentCharacterList[i], spawnInfo.EnemySpawnPoints[i].position, spawnInfo.EnemySpawnPoints[i].rotation);
+            Instantiate(enemyParty.CurrentCharacterList[i], spawnInfo.EnemySpawnPoints[i].position, spawnInfo.EnemySpawnPoints[i].rotation, characterParent.transform);
         }
     }
 

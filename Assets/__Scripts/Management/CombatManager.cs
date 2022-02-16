@@ -87,6 +87,7 @@ public class CombatManager : StateMachine
         }
 
         //TODO: They are currently set to the midline only changing z position for some reason
-        Debug.Log(currentCharacterTurn.transform.position);
+        Debug.Log(currentCharacterTurn.gameObject.transform.position);
+        Debug.Log(currentCharacterTurn.name);
     }
 }
